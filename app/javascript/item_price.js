@@ -3,9 +3,9 @@ function calc (){
 
   price.addEventListener('input', () => {
     const commission = document.getElementById("add-tax-price");
-    commission.innerHTML = Math.round(price.value * 0.1 );
+    commission.innerHTML = Math.floor(price.value * 0.1 );
     const profit = document.getElementById("profit");
-    profit.innerHTML = Math.round(price.value - Math.round(price.value * 0.1 ))
+    profit.innerHTML = Math.floor(price.value - Math.floor(price.value * 0.1 ))
   })
  };
  

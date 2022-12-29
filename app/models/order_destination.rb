@@ -1,4 +1,4 @@
-class クラス名
+class OrderDestination
   include ActiveModel::Model
   attr_accessor :postal_code, :prefecture_id, :municipality, :address, :building, :phone_number, :order_id, :user_id, :item_id
 

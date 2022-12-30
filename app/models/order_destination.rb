@@ -1,10 +1,10 @@
 class OrderDestination
   include ActiveModel::Model
-  attr_accessor :postal_code, :prefecture_id, :municipality, :address, :building, :phone_number, :user_id, :item_id
+  attr_accessor :postal_code, :prefecture_id, :municipality, :address, :building, :phone_number, :user_id, :item_id, :token
 
   with_options presence: true do
     validates :phone_number, numericality: {only_integer: true, message: 'is invalid. Input only number'}
-    validates :municipality, :address, :user_id, :item_id
+    validates :municipality, :address, :user_id, :item_id, :token
     validates :postal_code, format: {with: /\A[0-9]{3}-[0-9]{4}\z/, message: "is invalid. Include hyphen(-)"}
   end
   validates :prefecture_id, numericality: {other_than: 1, message: "can't be blank"}

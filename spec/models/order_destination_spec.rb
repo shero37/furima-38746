@@ -49,7 +49,7 @@ RSpec.describe OrderDestination, type: :model do
         @order_destination.valid?
         expect(@order_destination.errors.full_messages).to include("Phone number can't be blank")
       end
-      it 'tokenが空だと登録できないこと'do
+      it 'tokenが空だと登録できないこと' do
         @order_destination.token = nil
         @order_destination.valid?
         expect(@order_destination.errors.full_messages).to include("Token can't be blank")
@@ -60,12 +60,12 @@ RSpec.describe OrderDestination, type: :model do
         expect(@order_destination.errors.full_messages).to include('Phone number is invalid. Input only number')
       end
       it 'phone_numberが9桁以下では保存できないこと' do
-        @order_destination.phone_number = 123456789
+        @order_destination.phone_number = 123_456_789
         @order_destination.valid?
         expect(@order_destination.errors.full_messages).to include('Phone number is too short (minimum is 10 characters)')
       end
       it 'phone_numberが12桁以上では保存できないこと' do
-        @order_destination.phone_number = 123456789012
+        @order_destination.phone_number = 123_456_789_012
         @order_destination.valid?
         expect(@order_destination.errors.full_messages).to include('Phone number is too long (maximum is 11 characters)')
       end

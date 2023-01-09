@@ -16,13 +16,11 @@ const pay = () => {
     e.preventDefault();
     payjp.createToken(expiryElement).then((response) => {
       if (response.error) {
-       }
-        else
-      { 
-      const token = response.id;
-      const renderDom = document.getElementById("charge-form"); 
-      const tokenObj = `<input value=${token} name='token' type="hidden"> `;
-      renderDom.insertAdjacentHTML("beforeend", tokenObj);
+      } else { 
+        const token = response.id;
+        const renderDom = document.getElementById("charge-form"); 
+        const tokenObj = `<input value=${token} name='token' type="hidden"> `;
+        renderDom.insertAdjacentHTML("beforeend", tokenObj);
       }
       document.getElementById("charge-form").submit();
     });
